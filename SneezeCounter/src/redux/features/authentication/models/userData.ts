@@ -1,6 +1,4 @@
-export interface UserData{
-  username:string;
-  firstName:string;
-  lastName:string;
-  dateJoined:string;
+export interface UserData {
+  username: string;
+  dateJoined: string;
 }

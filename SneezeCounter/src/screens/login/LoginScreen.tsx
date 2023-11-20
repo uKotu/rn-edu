@@ -2,7 +2,10 @@ import {StyleSheet, View} from 'react-native';
 import {useState} from 'react';
 import {Button, TextInput} from 'react-native-paper';
 import {useAppDispatch, useAppSelector} from '../../redux/hooks';
-import {selectAuthentication} from '../../redux/features/authentication/authenticationSlice';
+import {
+  loginAsync,
+  selectAuthentication,
+} from '../../redux/features/authentication/authenticationSlice';
 import {showInfoMessage} from '../../util/messages';
 
 export const LoginScreen = () => {
@@ -15,6 +18,7 @@ export const LoginScreen = () => {
 
   function handleLoginPressed(): void {
     if (validateInputs()) {
+      dispatch(loginAsync({username, password}));
     }
   }
 
@@ -33,6 +37,7 @@ export const LoginScreen = () => {
   return (
     <View style={styles.container}>
       <TextInput
+        style={{backgroundColor: 'white'}}
         mode={'outlined'}
         value={username}
         autoCapitalize={'none'}
@@ -40,6 +45,7 @@ export const LoginScreen = () => {
         onChangeText={setUsername}
       />
       <TextInput
+        style={{backgroundColor: 'white'}}
         mode={'outlined'}
         textContentType={'password'}
         secureTextEntry={!isPasswordVisible}

@@ -8,13 +8,13 @@ import {RootSiblingParent} from 'react-native-root-siblings';
 
 const appWrappedInReduxProvider = () => {
   return (
-    <RootSiblingParent>
-      <Provider store={store}>
+    <Provider store={store}>
+      <RootSiblingParent>
         <PaperProvider>
           <App />
         </PaperProvider>
-      </Provider>
-    </RootSiblingParent>
+      </RootSiblingParent>
+    </Provider>
   );
 };
 
